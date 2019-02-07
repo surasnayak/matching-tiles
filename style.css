@@ -1,0 +1,140 @@
+body {
+	background: linear-gradient(to right, rgb(0, 204, 204), rgb(28, 28, 255));
+}
+
+h1, h3 {
+	color: brown;
+	text-align: center;
+	font-family: 'Pacifico', cursive;
+
+}
+
+#heading {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.super-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.container {
+	border: 2px solid white;
+	border-radius: 4px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	width: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.background--lightgreen {
+	background-color: #DBF4E3;
+	border-radius: 5px;
+	-webkit-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.91);
+	-moz-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.91);
+	box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.91);
+	opacity: .7;
+}
+
+.brick {
+	text-align: center;
+	width: 80px;
+	height: 80px;
+	margin: 5px;
+	border-radius: 5px;
+	background: linear-gradient(to right, rgb(35, 35, 35), rgb(83, 83, 83));
+	transition: all 0.5s;
+}
+
+.brick:hover {
+	transform: scale(1.1);
+}
+
+.back {
+	text-align: center;
+	width: 80px;
+	height: 80px;
+	margin: 5px;
+	border-radius: 5px;
+	background: linear-gradient(to right, rgb(28, 213, 227), rgb(102, 102, 179));
+}
+
+
+.images {
+	width: 30px;
+	height: 30px;
+	margin-top: 24px;
+}
+
+.visible {
+	display : none;
+}
+
+.bottom-container {
+	width: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.bottom-values {
+
+	font-family: 'Pacifico', cursive;
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: brown;
+	margin-right: ;
+}
+
+#refresh-button {
+	margin-top: 12px;
+	width: 40px;
+	height: 40px;
+	transition: all 0.3s;
+}
+
+#refresh-button:hover {
+	transform: scale(1.08);
+}
+
+/*==================================================
+ * Effect 8
+ * ===============================================*/
+
+.effect8
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+/*.effect8:before, .effect8:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect8:after
+{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}*/
