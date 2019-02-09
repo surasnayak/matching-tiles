@@ -8,7 +8,7 @@ var gamePad = document.getElementById("game-pad"); // Get game-pad
 var refreshButton = document.getElementById("refresh-button");
 var storeBrick1; // Temporary element variable to store brick1
 var storeBrick2; // Temporary element variable to store brick2
-var timePassed;
+var timePassed; // To store total time passed
 var myVar;
 var openCardCount = 0; // To make sure only two cards view at the same time.
 
@@ -17,41 +17,8 @@ var imageArray = ["tw.png", "li.png", "wi.png", "wo.png", "sk.png", "go.png", "i
 function myTimer()
 {
 	timePassed ++;
-	//console.log(timePassed);
 	timeElement.textContent = "Time Elapsed : "+timePassed;
 }
-
-cont.addEventListener("click", function(e) {
-	if(e.target !== e.currentTarget)
-	{
-		var brick = e.target;
-		//console.log(brick);
-		if(brick.localName === "div" && brick.classList.length === 2 && openCardCount < 2)
-		{
-			openCardCount++;
-			//console.log("1 "+openCardCount);
-			//if(openCardCount === 2) openCardCount = 0;
-			//console.log(brick);
-			brick.classList.toggle("back"); // Toggle black to bright.
-			brick.children[0].classList.toggle("visible"); // Invisible to visible (image)
-			clickC ++;
-
-			if(clickC === 1) // Start timer on first click.
-			{
-				timePassed = 0;
-				myVar = setInterval(myTimer, 1000);
-			}
-
-			movesElement.textContent = "Moves Count : " + clickC; // Output moves count
-			if(clickC % 2 === 1) storeBrick1 = brick; // Store first brick.
-			else if(clickC % 2 === 0)
-			{
-				storeBrick2 = brick; // Store second brick.
-				setTimeout(toggleFunction, 500); // Timout function.
-			}
-		}
-	}
-});
 
 function toggleFunction()
 {
@@ -74,8 +41,36 @@ function toggleFunction()
 			clickC = 0; // Reset clicks count to 0;
 		}
 	}
-	openCardCount = 0;	
+	openCardCount = 0;	// Reset openCardCount to '0'
 }
+
+cont.addEventListener("click", function(e) {
+	if(e.target !== e.currentTarget)
+	{
+		var brick = e.target;
+		if(brick.localName === "div" && brick.classList.length === 2 && openCardCount < 2)
+		{
+			openCardCount++; // Increase openCardCount
+			brick.classList.toggle("back"); // Toggle black to bright.
+			brick.children[0].classList.toggle("visible"); // Invisible to visible (image)
+			clickC ++; // Increase click count 
+
+			if(clickC === 1) // Start timer on first click.
+			{
+				timePassed = 0;
+				myVar = setInterval(myTimer, 1000);
+			}
+
+			movesElement.textContent = "Moves Count : " + clickC; // Output moves count
+			if(clickC % 2 === 1) storeBrick1 = brick; // Store first brick.
+			else if(clickC % 2 === 0)
+			{
+				storeBrick2 = brick; // Store second brick.
+				setTimeout(toggleFunction, 500); // Timout function.
+			}
+		}
+	}
+});
 
 function randomizeTiles() 
 {
