@@ -12,6 +12,8 @@ var timePassed;
 var myVar;
 var openCardCount = 0; // To make sure only two cards view at the same time.
 
+var imageArray = ["tw.png", "li.png", "wi.png", "wo.png", "sk.png", "go.png", "in.png", "yo.png", "tw.png", "li.png", "wi.png", "wo.png", "sk.png", "go.png", "in.png", "yo.png"]; // This array stores the list of images.
+
 function myTimer()
 {
 	timePassed ++;
@@ -75,6 +77,17 @@ function toggleFunction()
 	openCardCount = 0;	
 }
 
+function randomizeTiles() 
+{
+	var imageElements = document.getElementsByClassName("images");
+	var newImageArray = imageArray.sort( function() {return 0.5 - Math.random(); });
+
+	for(var i=0; i<16; i++)
+	{
+		imageElements[i].setAttribute("src", "images/" + newImageArray[i]);
+	}
+}
+
 refreshButton.addEventListener("click", function() {
 
 	for(var i=0; i<16; i++) // Toggle all revealed cards to black.
@@ -94,4 +107,8 @@ refreshButton.addEventListener("click", function() {
 	clearInterval(myVar); // Stop the timer after refresh.
 	timePassed = 0;
 	timeElement.textContent = "Time Elapsed : "+timePassed;
+
+	randomizeTiles(); // To set the new tiles randomly.
 });
+
+randomizeTiles(); // Randomize the tiles in the beginning.
