@@ -6,7 +6,7 @@ let timeElement = document.getElementById("time");
 let resultBlock = document.getElementById("result");
 let gamePad = document.getElementById("game-pad"); // Get game-pad
 let refreshButton = document.getElementById("refresh-button");
-let storeBrick1; // Temporary elemenletiable to store brick1
+let storeBrick1; // Temporary element variable to store brick1
 let storeBrick2; // Temporary element variable to store brick2
 let timePassed; // To store total time passed
 let myVar;
