@@ -1,23 +1,23 @@
-var cont = document.getElementsByClassName("container")[0];
-var clickC = 0; // Count clicks.
-var correctMoves = 0; // Count correct moves
-var movesElement = document.getElementById("moves");
-var timeElement = document.getElementById("time");
-var resultBlock = document.getElementById("result");
-var gamePad = document.getElementById("game-pad"); // Get game-pad
-var refreshButton = document.getElementById("refresh-button");
-var storeBrick1; // Temporary element variable to store brick1
-var storeBrick2; // Temporary element variable to store brick2
-var timePassed; // To store total time passed
-var myVar;
-var openCardCount = 0; // To make sure only two cards view at the same time.
+let cont = document.getElementsByClassName("container")[0];
+let clickC = 0; // Count clicks.
+let correctMoves = 0; // Count correct moves
+let movesElement = document.getElementById("moves");
+let timeElement = document.getElementById("time");
+let resultBlock = document.getElementById("result");
+let gamePad = document.getElementById("game-pad"); // Get game-pad
+let refreshButton = document.getElementById("refresh-button");
+let storeBrick1; // Temporary elemenletiable to store brick1
+let storeBrick2; // Temporary element variable to store brick2
+let timePassed; // To store total time passed
+let myVar;
+let openCardCount = 0; // To make sure only two cards view at the same time.
 
-var imageArray = ["tw.png", "li.png", "wi.png", "wo.png", "sk.png", "go.png", "in.png", "yo.png", "tw.png", "li.png", "wi.png", "wo.png", "sk.png", "go.png", "in.png", "yo.png"]; // This array stores the list of images.
+let imageArray = ["tw.png", "li.png", "wi.png", "wo.png", "sk.png", "go.png", "in.png", "yo.png", "tw.png", "li.png", "wi.png", "wo.png", "sk.png", "go.png", "in.png", "yo.png"]; // This array stores the list of images.
 
 function myTimer()
 {
 	timePassed ++;
-	timeElement.textContent = "Time Elapsed : "+timePassed;
+	timeElement.textContent = `Time Elapsed : ${timePassed}`;
 }
 
 function toggleFunction()
@@ -44,10 +44,10 @@ function toggleFunction()
 	openCardCount = 0;	// Reset openCardCount to '0'
 }
 
-cont.addEventListener("click", function(e) {
+cont.addEventListener("click", e => {
 	if(e.target !== e.currentTarget)
 	{
-		var brick = e.target;
+		let brick = e.target;
 		if(brick.localName === "div" && brick.classList.length === 2 && openCardCount < 2)
 		{
 			openCardCount++; // Increase openCardCount
@@ -61,7 +61,7 @@ cont.addEventListener("click", function(e) {
 				myVar = setInterval(myTimer, 1000);
 			}
 
-			movesElement.textContent = "Moves Count : " + clickC; // Output moves count
+			movesElement.textContent = `Moves Count : ${clickC}`; // Output moves count
 			if(clickC % 2 === 1) storeBrick1 = brick; // Store first brick.
 			else if(clickC % 2 === 0)
 			{
@@ -75,7 +75,7 @@ cont.addEventListener("click", function(e) {
 function randomizeTiles() 
 {
 	var imageElements = document.getElementsByClassName("images");
-	var newImageArray = imageArray.sort( function() {return 0.5 - Math.random(); });
+	var newImageArray = imageArray.sort(()=>  0.5 - Math.random());
 
 	for(var i=0; i<16; i++)
 	{
@@ -83,7 +83,7 @@ function randomizeTiles()
 	}
 }
 
-refreshButton.addEventListener("click", function() {
+refreshButton.addEventListener("click", ()=> {
 
 	for(var i=0; i<16; i++) // Toggle all revealed cards to black.
 	{	
@@ -96,12 +96,12 @@ refreshButton.addEventListener("click", function() {
 	}
 	clickC = 0; // Reset click count to '0'
 	correctMoves = 0; // Reset correct moves count to '0'
-	movesElement.textContent = "Moves Count : " + clickC;
+	movesElement.textContent = `Moves Count : ${clickC}`;
 	resultBlock.textContent = "";
 
 	clearInterval(myVar); // Stop the timer after refresh.
 	timePassed = 0;
-	timeElement.textContent = "Time Elapsed : "+timePassed;
+	timeElement.textContent = `Time Elapsed : ${timePassed}`;
 
 	randomizeTiles(); // To set the new tiles randomly.
 });
